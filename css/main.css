@@ -6,15 +6,15 @@
   transition: all 500ms ease-in; }
 
 body {
-  overflow: hidden;
   font-family: "Roboto", sans-serif; }
 
 .wrapper {
   animation: wrapper 3s forwards;
-  height: 100%;
-  left: 0;
+  height: 100vh;
   opacity: 0;
-  position: fixed;
+  position: relative;
+  overflow-x: hidden;
+  left: 0;
   top: 0;
   width: 100%; }
   .wrapper #bg {
@@ -25,9 +25,9 @@ body {
     background: #eccba0 url("../images/bg3.png") bottom left;
     background-repeat: repeat-x;
     height: 100%;
-    left: 0;
     opacity: 1;
-    position: fixed;
+    position: absolute;
+    left: 0;
     top: 0; }
 
 @keyframes bg {
@@ -43,13 +43,15 @@ body {
     background-repeat: repeat, no-repeat;
     background-size: auto, cover;
     height: 100%;
-    left: 0;
     opacity: 0;
-    position: fixed;
+    position: absolute;
+    left: 0;
     top: 0;
     width: 100%; }
   .wrapper #main {
-    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
     color: #725469;
     height: 100%;
     width: 100%;
@@ -153,6 +155,84 @@ body {
         transform: translate3d(0, 0, 0); }
       100% {
         transform: translate3d(-1500px, 0, 0); } } }
+
+.content {
+  display: flex;
+  height: 100vh; }
+  .content #contentLeft {
+    width: 40%; }
+    .content #contentLeft iframe {
+      height: 100%;
+      width: 100%; }
+  .content #contentRight {
+    width: 60%;
+    overflow: scroll; }
+    .content #contentRight #me {
+      margin: 6rem 3rem 2rem 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 2px solid #725469; }
+      .content #contentRight #me header h2 {
+        font-size: 1.8rem;
+        color: #725469;
+        font-weight: 400;
+        margin-bottom: 2rem; }
+      .content #contentRight #me p {
+        color: #725469;
+        font-size: 1rem;
+        font-weight: 200;
+        line-height: 1.7rem; }
+        .content #contentRight #me p:last-child {
+          margin-bottom: 2rem; }
+      .content #contentRight #me .hidden {
+        display: none; }
+      .content #contentRight #me .btn {
+        font-family: "Roboto", sans-serif;
+        background: #fff;
+        border: 2px solid #3b3d4e;
+        border-radius: 10px;
+        padding: 0.6rem 1.5rem;
+        color: #3b3d4e;
+        transition: all 100ms ease-in-out !important;
+        outline: none; }
+        .content #contentRight #me .btn p {
+          padding: 0 1.5rem;
+          margin-bottom: 0 !important;
+          font-size: 1rem;
+          font-weight: 400;
+          transition: all 100ms ease-in-out !important; }
+        .content #contentRight #me .btn:hover {
+          cursor: pointer;
+          border: 2px solid #e8c89d;
+          transition: all 100ms ease-in-out !important; }
+          .content #contentRight #me .btn:hover p {
+            color: #e8c89d;
+            transition: all 100ms ease-in-out !important; }
+        .content #contentRight #me .btn:active {
+          background-color: rgba(177, 108, 67, 0.7); }
+          .content #contentRight #me .btn:active p {
+            color: #fff; }
+    .content #contentRight #myWork {
+      width: 100%;
+      margin: 3rem 2rem;
+      padding-bottom: 3rem;
+      border-bottom: 2px solid #725469; }
+      .content #contentRight #myWork .showcase {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%; }
+        .content #contentRight #myWork .showcase .item {
+          width: 50%; }
+          .content #contentRight #myWork .showcase .item a {
+            cursor: pointer;
+            outline: none;
+            width: 100%;
+            border-radius: 10px;
+            text-align: center;
+            position: relative; }
+            .content #contentRight #myWork .showcase .item a img {
+              width: 100%; }
 
 @keyframes overlay {
   0% {
