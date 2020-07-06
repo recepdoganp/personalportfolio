@@ -5,7 +5,7 @@ const details = document.querySelector(".details");
 const body = document.getElementsByTagName("body")[0];
 
 learnMoreBtn.addEventListener("click", (e) => {
-  toggleHide();
+  toggleHide(e);
 });
 
 const toggleFlexDirection = (element) => {
@@ -18,9 +18,19 @@ const toggleFlexDirection = (element) => {
 };
 
 const toggleHide = (e) => {
-  if (details.classList.contains("hidden")) {
-    details.classList.remove("hidden");
+  let targetElement;
+  if (e.target.tagName === "P") {
+    targetElement = e.target.parentElement.previousElementSibling;
+  } else if (e.target.tagName === "BUTTON") {
+    targetElement = e.target.previousElementSibling;
+  }
+
+  if (targetElement.classList.contains("hidden")) {
+    targetElement.classList.remove("hidden");
+    targetElement.nextElementSibling.firstElementChild.innerText =
+      "Hide Details";
   } else {
-    details.classList.add("hidden");
+    targetElement.classList.add("hidden");
+    targetElement.nextElementSibling.firstElementChild.innerText = "Show More";
   }
 };
